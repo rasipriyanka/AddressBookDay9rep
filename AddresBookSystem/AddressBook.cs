@@ -37,7 +37,7 @@ namespace AddresBookSystem
             string[] address = new string[2]; // creating Array for to store the address
             address[0] = Console.ReadLine();
             
-            person.Addresses = address;
+            person.Address = address;
 
             People.Add(person);
         }
@@ -51,7 +51,7 @@ namespace AddresBookSystem
             Console.WriteLine("Phone Number: " + person.PhoneNumber);
             Console.WriteLine("Zip: " + person.Zip);
             Console.WriteLine("City: " + person.City);
-            Console.WriteLine("Address : " + person.Addresses[0]);
+            Console.WriteLine("Address : " + person.Address[0]);
            
             
         }
