@@ -11,7 +11,7 @@ namespace AddresBookSystem
         private string PhoneNumber { get; set; }
         private string Zip { get; set; }
         private string City { get; set; }
-        private string[] Addresses { get; set; }
+        private string[] Address { get; set; }
 
         public static List<AddressBook> People = new List<AddressBook>();
         // creating list for to store the all address of people
