@@ -20,7 +20,7 @@ namespace AddresBookSystem
         {
             AddressBook person = new AddressBook(); // creating a object for to access instance method or variable
 
-            Console.Write("Enter First Name: "); 
+            Console.Write("Enter First Name: ");
             person.FirstName = Console.ReadLine();
 
             Console.Write("Enter Last Name: ");
@@ -29,14 +29,16 @@ namespace AddresBookSystem
             Console.Write("Enter Phone Number: ");
             person.PhoneNumber = Console.ReadLine();
             Console.Write("Enter Zip: ");
+            person.Zip = Console.ReadLine();
             Console.ReadLine();
             Console.Write("Enter City: ");
+            person.City = Console.ReadLine();
             Console.ReadLine();
 
             Console.Write("Enter Address : ");
             string[] address = new string[2]; // creating Array for to store the address
             address[0] = Console.ReadLine();
-            
+
             person.Address = address;
 
             People.Add(person);
@@ -52,8 +54,8 @@ namespace AddresBookSystem
             Console.WriteLine("Zip: " + person.Zip);
             Console.WriteLine("City: " + person.City);
             Console.WriteLine("Address : " + person.Address[0]);
-           
-            
+
+
         }
         public static void ListPeople() //This method used to show people who are present in Address book
         {
@@ -74,7 +76,3 @@ namespace AddresBookSystem
 
     }
 }
-    
-
-
-
