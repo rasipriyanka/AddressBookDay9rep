@@ -6,15 +6,24 @@ namespace AddresBookSystem
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(" Add Person :");
+            Console.WriteLine("please enter a command : 1=add,2=remove,3=list");
+
             int num = Convert.ToInt32(Console.ReadLine());
-            int x = 1;
-            while (x <= num)
+
+            switch (num)
             {
-                AddressBook.AddPerson();
-                x++;
+                case 1:
+                    AddressBook.AddPerson();
+                    break;
+                case 2:
+                    AddressBook.RemovePerson();
+                    break;
+                case 3:
+                    AddressBook.ListPeople();
+                    break;
             }
-            AddressBook.ListPeople();
+            Console.Read();
         }
     }
 }
+

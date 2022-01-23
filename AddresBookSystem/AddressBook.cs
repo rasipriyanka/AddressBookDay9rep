@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+
 
 namespace AddresBookSystem
 {
@@ -11,7 +13,7 @@ namespace AddresBookSystem
         private string PhoneNumber { get; set; }
         private string Zip { get; set; }
         private string City { get; set; }
-        private string[] Address { get; set; }
+        private string[] Address{ get; set; }
 
         public static List<AddressBook> People = new List<AddressBook>();
         // creating list for to store the all address of people
@@ -20,7 +22,7 @@ namespace AddresBookSystem
         {
             AddressBook person = new AddressBook(); // creating a object for to access instance method or variable
 
-            Console.Write("Enter First Name: "); 
+            Console.Write("Enter First Name: "); // Taking the inputs from user
             person.FirstName = Console.ReadLine();
 
             Console.Write("Enter Last Name: ");
@@ -29,11 +31,14 @@ namespace AddresBookSystem
             Console.Write("Enter Phone Number: ");
             person.PhoneNumber = Console.ReadLine();
             Console.Write("Enter Zip: ");
+            person.Zip = Console.ReadLine();
             Console.ReadLine();
             Console.Write("Enter City: ");
+            person.City = Console.ReadLine();
             Console.ReadLine();
 
-            Console.Write("Enter Address : ");
+
+            Console.Write("Enter Address 1: ");
             string[] address = new string[2]; // creating Array for to store the address
             address[0] = Console.ReadLine();
             
@@ -52,7 +57,6 @@ namespace AddresBookSystem
             Console.WriteLine("Zip: " + person.Zip);
             Console.WriteLine("City: " + person.City);
             Console.WriteLine("Address : " + person.Address[0]);
-           
             
         }
         public static void ListPeople() //This method used to show people who are present in Address book
@@ -68,12 +72,37 @@ namespace AddresBookSystem
             {
                 PrintPerson(Element);
             }
+
             Console.WriteLine("\nPress any key to continue.");
             Console.ReadKey();
         }
+        public static void RemovePerson() //this method for remove the people with respect their names
+        {
+            Console.WriteLine("Enter the first name of the person you would like to remove.");
+            string firstName = Console.ReadLine();
+            AddressBook person = People.FirstOrDefault(x => x.FirstName.ToLower() == firstName.ToLower());
+            if (person == null)
+            {
+                Console.WriteLine("That person could not be found. Press any key to continue");
+                Console.ReadKey();
+                return;
+            }
+            Console.WriteLine("Are you sure you want to remove this person from your address book? (Y/N)");
+            PrintPerson(person);
+
+            if (Console.ReadKey().Key == ConsoleKey.Y)
+            {
+                People.Remove(person);
+                Console.WriteLine("Person removed. Press any key to continue.");
+                Console.ReadKey();
+            }
+            Console.Read();
+        }
+
 
     }
 }
+
     
 
 
