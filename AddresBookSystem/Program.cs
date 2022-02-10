@@ -4,18 +4,30 @@ namespace AddresBookSystem
 {
     internal class Program
     {
-        static void Main(string[] args) //Ability to add multiple person to address book
+        static void Main(string[] args) 
         {
-            Console.WriteLine(" Add Person :");
-            int num = Convert.ToInt32(Console.ReadLine());
-            int x = 1;
-            while (x <= num)
+           
+            Console.WriteLine("Enter a Number to Add :");
+            
+            AddressBook.AddPerson();
+            int i = 1,n=0;
+            while (i <= n)
             {
-                AddressBook.AddPerson();
-                x++;
+                try
+                {
+                    //avoid dublicate persons
+                    AddressBook.DublicatePerson();
+                    i++;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
             AddressBook.ListPeople();
         }
     }
 }
+
+   
 
